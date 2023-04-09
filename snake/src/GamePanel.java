@@ -7,6 +7,22 @@ import java.util.Random;
 
 public class GamePanel extends JPanel implements ActionListener{
 
+    static final int WIDTH = 600;
+    static final int HEIGHT = 600;
+    static final int UNIT = 25;
+    static final int AVALIBLE_UNITS = (WIDTH * HEIGHT)/UNIT;
+    static final int DELAY = 75;
+    final int[] x = new int[AVALIBLE_UNITS];
+    final int[] y = new int[AVALIBLE_UNITS];
+    int bodyParts = 6;
+    int applesEaten;
+    int appleX;
+    int appleY;
+    char direction = 'R';
+    boolean running = false;
+    Timer timer;
+    Random random;
+
     GamePanel(){
         
     }
