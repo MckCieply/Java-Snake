@@ -38,13 +38,21 @@ public class GamePanel extends JPanel implements ActionListener{
         timer.start(); 
     }
     public void paintComponent(Graphics g){
-
+        super.paintComponent(g);
+        draw(g);
     }
     public void draw(Graphics g){
         
+        for(int i=0;i<HEIGHT/UNIT;i++){
+            g.drawLine(i*UNIT, 0, i*UNIT, HEIGHT);
+            g.drawLine(0, i*UNIT, WIDTH, i*UNIT);
+        }
+        g.setColor(Color.green);
+        g.fillOval(appleX, appleY, UNIT, UNIT);
     }
     public void newApple(){
-
+        appleX = random.nextInt((int)(WIDTH/UNIT)) * UNIT;
+        appleY = random.nextInt((int)(HEIGHT/UNIT)) * UNIT;
     }
     public void move(){
 
