@@ -49,6 +49,17 @@ public class GamePanel extends JPanel implements ActionListener{
         }
         g.setColor(Color.green);
         g.fillOval(appleX, appleY, UNIT, UNIT);
+
+        for(int i = 0; i<bodyParts; i++){
+            if(i == 0 ){
+                g.setColor(Color.red);
+                g.fillRect(x[i], y[i], UNIT, UNIT);
+            }
+            else{
+                g.setColor(Color.orange);
+                g.fillRect(x[i], y[i], UNIT, UNIT);
+            }
+        }
     }
     public void newApple(){
         appleX = random.nextInt((int)(WIDTH/UNIT)) * UNIT;
@@ -82,8 +93,13 @@ public class GamePanel extends JPanel implements ActionListener{
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+        if(running){
+            move();
+            checkApple();
+            checkCollision();
+        }
+        repaint();
+        //throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }
     
     public class MyKeyAdapter extends KeyAdapter{
