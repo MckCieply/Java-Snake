@@ -3,5 +3,4 @@ public class App {
         GameFrame frame = new GameFrame();
 
     }
-    // https://www.youtube.com/watch?v=bI6e6qjJ8JQ 4:45
 }
