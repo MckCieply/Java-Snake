@@ -74,12 +74,16 @@ public class GamePanel extends JPanel implements ActionListener{
         switch(direction) {
             case 'U':
                 y[0] = y[0] - UNIT;
+                break;
             case 'D':
                 y[0] = y[0] + UNIT;
+                break;
             case 'L':
                 x[0] = x[0] - UNIT;
+                break;
             case 'R':
                 x[0] = x[0] + UNIT;
+                break;
         }
     }
     public void checkApple(){
