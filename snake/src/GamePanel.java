@@ -42,23 +42,27 @@ public class GamePanel extends JPanel implements ActionListener{
         draw(g);
     }
     public void draw(Graphics g){
-        
-        for(int i=0;i<HEIGHT/UNIT;i++){
-            g.drawLine(i*UNIT, 0, i*UNIT, HEIGHT);
-            g.drawLine(0, i*UNIT, WIDTH, i*UNIT);
-        }
-        g.setColor(Color.green);
-        g.fillOval(appleX, appleY, UNIT, UNIT);
+        if(running){
+            for(int i=0;i<HEIGHT/UNIT;i++){
+                g.drawLine(i*UNIT, 0, i*UNIT, HEIGHT);
+                g.drawLine(0, i*UNIT, WIDTH, i*UNIT);
+            }
+            g.setColor(Color.green);
+            g.fillOval(appleX, appleY, UNIT, UNIT);
 
-        for(int i = 0; i<bodyParts; i++){
-            if(i == 0 ){
-                g.setColor(Color.red);
-                g.fillRect(x[i], y[i], UNIT, UNIT);
+            for(int i = 0; i<bodyParts; i++){
+                if(i == 0 ){
+                    g.setColor(Color.red);
+                    g.fillRect(x[i], y[i], UNIT, UNIT);
+                }
+                else{
+                    g.setColor(Color.orange);
+                    g.fillRect(x[i], y[i], UNIT, UNIT);
+                }
             }
-            else{
-                g.setColor(Color.orange);
-                g.fillRect(x[i], y[i], UNIT, UNIT);
-            }
+        }
+        else{
+            gameOver(g);
         }
     }
     public void newApple(){
